@@ -1,0 +1,19 @@
+Steps to install pyspark on google colab:
+
+1. !pip install pyspark
+!pip install -U -q PyDrive
+!apt install openjdk-8-jdk-headless -qq
+import os
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
+
+2. from pyspark.sql import SparkSession
+from pyspark import SparkContext, SparkConf
+
+3. # create the session
+conf = SparkConf().set("spark.ui.port", "4050")
+
+# create the context
+import pyspark
+sc = pyspark.SparkContext(conf=conf)
+spark = SparkSession.builder.getOrCreate()
+
